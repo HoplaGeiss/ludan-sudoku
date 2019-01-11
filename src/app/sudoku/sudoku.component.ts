@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'ludan-sudoku',
+  styleUrls: ['./sudoku.component.scss'],
   template: `
-    <div><input ludan-number-input maxlength="1" /></div>
+    <div class="sudoku"><ludan-sudoku-grid></ludan-sudoku-grid></div>
   `
 })
 export class SudokuComponent {}

@@ -1,0 +1,16 @@
+.sudoku-grid {
+  background: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  .square {
+    flex-basis: 11.11%;
+    background: yellow;
+
+    input {
+      width: 10px;
+    }
+  }
+}
