@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GreeterModule } from './greeter/greeter.module';
+import { SudokuModule } from './sudoku/sudoku.module';
 
 @NgModule({
-  imports: [BrowserModule, GreeterModule, AppRoutingModule],
+  imports: [BrowserModule, SudokuModule, AppRoutingModule],
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]

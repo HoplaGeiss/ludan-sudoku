@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'ludan-root',
   styleUrls: ['./app.component.scss'],
   template: `
-    <ludan-greeter></ludan-greeter>
+    <ludan-sudoku></ludan-sudoku>
   `
 })
 export class AppComponent {}

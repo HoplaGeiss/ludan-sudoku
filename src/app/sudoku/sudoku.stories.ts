@@ -2,7 +2,7 @@ import { Component, OnDestroy, Input } from '@angular/core';
 import { storiesOf } from '@storybook/angular';
 import { Subject } from 'rxjs';
 import { withKnobs, boolean } from '@storybook/addon-knobs';
-import { GreeterModule } from './greeter.module';
+import { SudokuModule } from './sudoku.module';
 import { withReadme } from 'storybook-readme';
 
 const readme = require('./readme.md');
@@ -11,15 +11,12 @@ const readme = require('./readme.md');
   selector: 'ludan-story',
   template: `
     <div style="margin: auto; width: 60%; margin-top: 10%">
-      <h1 style="border-bottom: 1px solid #ccc;">Greeter</h1>
-      <!-- prettier-ignore -->
-      <ludan-greeter [name]="changeName ? 'you' : 'here'
-      "></ludan-greeter>
+      <h1 style="border-bottom: 1px solid #ccc;">Sudoku Component</h1>
+      <ludan-sudoku></ludan-sudoku>
     </div>
   `
 })
 class MockComponent implements OnDestroy {
-  @Input() changeName: boolean;
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
   ngOnDestroy() {
@@ -28,20 +25,20 @@ class MockComponent implements OnDestroy {
   }
 }
 
-storiesOf('Greeter', module)
+storiesOf('Sudoku', module)
   .addDecorator(withKnobs)
   .add(
     'Default',
     withReadme(readme, () => ({
       moduleMetadata: {
-        imports: [GreeterModule],
+        imports: [SudokuModule],
         declarations: [MockComponent]
       },
       props: {
-        changeName: boolean('Change Name', false)
+        // changeName: boolean('Change Name', false)
       },
       template: `
-      <ludan-story [changeName]='changeName'></ludan-story>
+      <ludan-story></ludan-story>
     `
     }))
   );
