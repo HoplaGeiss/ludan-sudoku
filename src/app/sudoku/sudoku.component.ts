@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SudokuService } from './sudoku.service';
 
 @Component({
   selector: 'ludan-sudoku',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
     <div class="sudoku"><ludan-sudoku-grid></ludan-sudoku-grid></div>
   `
 })
-export class SudokuComponent {}
+export class SudokuComponent implements OnInit {
+  constructor(private sudokuService: SudokuService) {}
+  ngOnInit() {
+    this.sudokuService.generateSudoku();
+  }
+}
