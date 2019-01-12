@@ -15,7 +15,7 @@ export class SudokuService {
   generateSudokuPuzzle = (solution: number[], difficulty: SudokuDifficulty): number[] => {
     const randomIndexes = this.generateRandomNumberArray(difficulty, 0, 81);
     randomIndexes.map(index => (solution[index] = undefined));
-    this.printGrid(solution);
+    // this.printGrid(solution);
     return solution;
   };
 

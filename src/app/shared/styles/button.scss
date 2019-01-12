@@ -1,0 +1,18 @@
+@import './colours.scss';
+
+.ludan-button {
+  cursor: pointer;
+  border-radius: 1px;
+  width: 80px;
+  outline: none;
+
+  &:hover {
+    background: $grey0;
+  }
+
+  &.highlight {
+    background: $blue5;
+    border: 1px solid $blue5;
+    color: white;
+  }
+}

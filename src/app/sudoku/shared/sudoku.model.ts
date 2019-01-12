@@ -1,5 +1,5 @@
 export enum SudokuDifficulty {
-  EASY = 60,
+  EASY = 30,
   MEDIUM = 40,
-  HARD = 25
+  HARD = 50
 }
