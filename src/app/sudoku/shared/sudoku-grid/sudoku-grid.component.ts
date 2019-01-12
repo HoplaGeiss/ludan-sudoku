@@ -5,10 +5,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./sudoku-grid.component.scss'],
   template: `
     <div class="sudoku-grid">
-      <!-- prettier-ignore -->
-      <div *ngFor='let square of [].constructor(9)' class='small-grid'>
-        <div *ngFor="let square of [].constructor(9)" class='cell'>
-          <input ludan-number-input maxlength="1" />
+      <div *ngFor="let square of [].constructor(9); let i = index" class="small-grid">
+        <div *ngFor="let square of [].constructor(9); let j = index" class="cell">
+          <!-- prettier-ignore -->
+          <input ludan-number-input maxlength="1" [value]='nestedSudokuPuzzle[i][j] ? nestedSudokuPuzzle[i][j] : null
+          '/>
         </div>
       </div>
     </div>
@@ -16,5 +17,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SudokuGridComponent {
   @Input() sudokuSolution: number[];
-  @Input() sudokuPuzzle: number[];
+  @Input() nestedSudokuPuzzle: number[];
+  plop = 1;
 }

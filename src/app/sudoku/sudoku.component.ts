@@ -7,7 +7,10 @@ import { SudokuDifficulty } from './shared/sudoku.model';
   styleUrls: ['./sudoku.component.scss'],
   template: `
     <div class="sudoku">
-      <ludan-sudoku-grid [sudokuSolution]="sudokuSolution" [sudokuPuzzle]="sudokuPuzzle"></ludan-sudoku-grid>
+      <ludan-sudoku-grid
+        [sudokuSolution]="sudokuSolution"
+        [nestedSudokuPuzzle]="nestedSudokuPuzzle"
+      ></ludan-sudoku-grid>
       <ludan-sudoku-settings (sudokuDifficultyEvent)="setDifficulty($event)"></ludan-sudoku-settings>
     </div>
   `
@@ -15,6 +18,7 @@ import { SudokuDifficulty } from './shared/sudoku.model';
 export class SudokuComponent implements OnInit {
   sudokuSolution: number[];
   sudokuPuzzle: number[];
+  nestedSudokuPuzzle: number[][];
   difficulty: SudokuDifficulty = SudokuDifficulty.MEDIUM;
 
   constructor(private sudokuService: SudokuService) {}
@@ -22,6 +26,8 @@ export class SudokuComponent implements OnInit {
   ngOnInit() {
     this.sudokuSolution = this.sudokuService.generateSudokuSolution();
     this.sudokuPuzzle = this.sudokuService.generateSudokuPuzzle(this.sudokuSolution, this.difficulty);
+    this.nestedSudokuPuzzle = this.sudokuService.formatToNestedSudokuPuzzle(this.sudokuPuzzle);
+    console.log(this.nestedSudokuPuzzle);
   }
 
   setDifficulty = (difficulty: SudokuDifficulty) => {

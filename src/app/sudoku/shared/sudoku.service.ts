@@ -19,6 +19,24 @@ export class SudokuService {
     return solution;
   };
 
+  formatToNestedSudokuPuzzle = (flatPuzzle: number[]): number[][] => {
+    let nestedSudokuPuzzle = [];
+    let row = 0;
+    while (nestedSudokuPuzzle.length < 9) {
+      const intArray = [[], [], []];
+      while (intArray[2].length < 9) {
+        for (let j = 0; j < 3; j++) {
+          for (let k = 0; k < 3; k++) {
+            intArray[j] = [...intArray[j], flatPuzzle[row * 9 + 3 * j + k]];
+          }
+        }
+        row++;
+      }
+      nestedSudokuPuzzle = [...nestedSudokuPuzzle, ...intArray];
+    }
+    return nestedSudokuPuzzle;
+  };
+
   private generateRandomNumberArray = (length: number, min: number, max: number) => {
     const numbers = [];
     while (numbers.length < length - 1) {
