@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ludan-sudoku-grid',
@@ -10,4 +10,7 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class SudokuGridComponent {}
+export class SudokuGridComponent {
+  @Input() sudokuSolution: number[];
+  @Input() sudokuPuzzle: number[];
+}

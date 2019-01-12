@@ -1,13 +1,31 @@
+import { SudokuDifficulty } from './sudoku.model';
 import { Injectable } from '@angular/core';
 import * as _ from 'underscore';
 
 @Injectable()
 export class SudokuService {
-  generateSudoku = (): number[] => {
+  generateSudokuSolution = (): number[] => {
     const sudoku = this.attemptToGenerateSudoku();
     // The sudoku might not generate properly as some of them are not solvable.
     // So we might need to run this function multiple times.
-    return sudoku ? sudoku : this.generateSudoku();
+    return sudoku ? sudoku : this.generateSudokuSolution();
+  };
+
+  // Given a sudoku solution and the difficulty of the game, we return a sudoku puzzle
+  generateSudokuPuzzle = (solution: number[], difficulty: SudokuDifficulty): number[] => {
+    const randomIndexes = this.generateRandomNumberArray(difficulty, 0, 81);
+    randomIndexes.map(index => (solution[index] = undefined));
+    this.printGrid(solution);
+    return solution;
+  };
+
+  private generateRandomNumberArray = (length: number, min: number, max: number) => {
+    const numbers = [];
+    while (numbers.length < length - 1) {
+      const randomNumber = Math.floor(Math.random() * (max - min)) + min;
+      if (numbers.indexOf(randomNumber) < 0) numbers.push(randomNumber);
+    }
+    return numbers;
   };
 
   private attemptToGenerateSudoku = () => {
