@@ -1,16 +1,32 @@
+$cell-size: 40px;
+
 .sudoku-grid {
-  background: red;
-  width: 100%;
-  height: 100%;
+  width: calc(9 * #{$cell-size} + 6px);
+  height: calc(9 * #{$cell-size} + 6px);
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid black;
 
-  .square {
-    flex-basis: 11.11%;
-    background: yellow;
+  .small-grid {
+    width: calc(3 * #{$cell-size});
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid black;
 
-    input {
-      width: 10px;
+    .cell {
+      height: $cell-size;
+      width: $cell-size;
+
+      input {
+        box-sizing: border-box;
+        height: $cell-size;
+        width: $cell-size;
+        padding: 0;
+        border: 1px solid grey;
+        outline: none;
+        text-align: center;
+        font-size: 1.5em;
+      }
     }
   }
 }
