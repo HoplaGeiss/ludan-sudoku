@@ -7,7 +7,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './greeter/greeter.module#SudokuModule'
+        loadChildren: './sudoku/sudoku.module#SudokuModule'
       }
     ]
   }

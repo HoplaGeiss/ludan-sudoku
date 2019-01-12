@@ -1,24 +1,23 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+
 import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [AppComponent]
-    }).compileComponents();
-  }));
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [AppModule]
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.debugElement.componentInstance;
   });
 
-  it(`should have as title 'ludan-sudoku'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ludan-sudoku');
+  it('creates', () => {
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
   });
 });
