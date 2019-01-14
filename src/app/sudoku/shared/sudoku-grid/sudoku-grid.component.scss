@@ -24,14 +24,18 @@ $cell-size: 40px;
         height: $cell-size;
         width: $cell-size;
         padding: 0;
-        border: 1px solid grey;
+        border: 1px solid $grey2;
         outline: none;
         text-align: center;
         font-size: 1.5em;
         color: $blue7;
 
         &:disabled {
-          color: grey;
+          color: $grey5;
+        }
+
+        &.error {
+          background: $red2;
         }
       }
     }

@@ -13,10 +13,11 @@ export class SudokuService {
 
   // Given a sudoku solution and the difficulty of the game, we return a sudoku puzzle
   generateSudokuPuzzle = (solution: number[], difficulty: SudokuDifficulty): number[] => {
+    const sudokuPuzzle = solution.slice();
     const randomIndexes = this.generateRandomNumberArray(difficulty, 0, 81);
-    randomIndexes.map(index => (solution[index] = undefined));
+    randomIndexes.map(index => (sudokuPuzzle[index] = undefined));
     // this.printGrid(solution);
-    return solution;
+    return sudokuPuzzle;
   };
 
   formatToNestedSudokuPuzzle = (flatPuzzle: number[]): number[][] => {

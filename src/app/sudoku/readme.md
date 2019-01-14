@@ -1,3 +1,9 @@
 # Sudoku Component
 
-Sudoku component
+This is a just a wrapper component to call the sudoku game.
+
+## Usage
+
+```typescript
+<ludan-sudoku />
+```

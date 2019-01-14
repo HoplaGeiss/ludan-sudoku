@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { SudokuService } from './shared/sudoku.service';
 import { SudokuDifficulty } from './shared/sudoku.model';
 
@@ -33,12 +33,15 @@ import { SudokuDifficulty } from './shared/sudoku.model';
         </button>
       </div>
       <ludan-sudoku-grid
-        [sudokuSolution]="sudokuSolution"
         [nestedSudokuPuzzle]="nestedSudokuPuzzle"
+        [nestedSudokuSolution]="nestedSudokuSolution"
+        [verifyEvent]="verifyEvent"
+        [displaySolution]="displaySolution"
       ></ludan-sudoku-grid>
       <div class="action-toolbar">
         <button class="ludan-button" (click)="initSudokuPuzzle()">Reset</button>
-        <button class="ludan-button">Verify</button>
+        <button class="ludan-button" (click)="verify()">Verify</button>
+        <button class="ludan-button" (click)="displaySol()">Solution</button>
       </div>
     </div>
   `
@@ -47,8 +50,11 @@ export class SudokuComponent implements OnInit {
   sudokuSolution: number[];
   sudokuPuzzle: number[];
   nestedSudokuPuzzle: number[][];
+  nestedSudokuSolution: number[][];
   difficulty: SudokuDifficulty = SudokuDifficulty.MEDIUM;
   sudokuDifficultyEnum = SudokuDifficulty;
+  verifyEvent: EventEmitter<boolean> = new EventEmitter();
+  displaySolution: boolean;
 
   constructor(private sudokuService: SudokuService) {}
 
@@ -66,5 +72,17 @@ export class SudokuComponent implements OnInit {
     this.sudokuSolution = this.sudokuService.generateSudokuSolution();
     this.sudokuPuzzle = this.sudokuService.generateSudokuPuzzle(this.sudokuSolution, this.difficulty);
     this.nestedSudokuPuzzle = this.sudokuService.formatToNestedSudokuPuzzle(this.sudokuPuzzle);
+    this.nestedSudokuSolution = this.sudokuService.formatToNestedSudokuPuzzle(this.sudokuSolution);
+    this.verifyEvent.emit(false);
+    this.displaySolution = false;
+  };
+
+  verify = () => {
+    this.verifyEvent.emit(true);
+  };
+
+  displaySol = () => {
+    this.verifyEvent.emit(false);
+    this.displaySolution = true;
   };
 }
