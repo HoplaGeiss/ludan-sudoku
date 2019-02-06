@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { SudokuService } from './shared/sudoku.service';
-import { SudokuDifficulty } from './shared/sudoku.model';
+import { SudokuService } from './sudoku.service';
+import { SudokuDifficulty } from './sudoku.model';
 
 @Component({
   selector: 'ludan-sudoku',

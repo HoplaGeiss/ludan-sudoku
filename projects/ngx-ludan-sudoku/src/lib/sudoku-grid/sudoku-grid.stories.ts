@@ -4,8 +4,7 @@ import { storiesOf } from '@storybook/angular';
 import { Subject } from 'rxjs';
 import { withReadme } from 'storybook-readme';
 
-import { nestedSudokuPuzzle } from '../sudoku.mocks';
-import { nestedSudokuSolution } from './../sudoku.mocks';
+import { nestedSudokuPuzzle, nestedSudokuSolution } from '../sudoku.mocks';
 import { SudokuService } from './../sudoku.service';
 import { SudokuGridModule } from './sudoku-grid.module';
 

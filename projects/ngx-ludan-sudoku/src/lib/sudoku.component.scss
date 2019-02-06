@@ -1,6 +1,6 @@
-@import '../shared/styles/button.scss';
-@import '../shared/styles/colours';
-@import '../shared/styles/mixins';
+@import 'shared/styles/button.scss';
+@import 'shared/styles/colours';
+@import 'shared/styles/mixins';
 
 .sudoku {
   @include font-family();

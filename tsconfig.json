@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-ludan-sudoku": [
+        "dist/ngx-ludan-sudoku"
+      ],
+      "ngx-ludan-sudoku/*": [
+        "dist/ngx-ludan-sudoku/*"
+      ]
+    }
   }
 }

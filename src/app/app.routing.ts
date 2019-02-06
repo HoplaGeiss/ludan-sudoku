@@ -3,13 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    children: [
-      {
-        path: '',
-        loadChildren: './sudoku/sudoku.module#SudokuModule'
-      }
-    ]
+    path: ''
   }
 ];
 
