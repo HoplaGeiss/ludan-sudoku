@@ -7,7 +7,6 @@ import { SudokuDifficulty } from './sudoku.model';
   styleUrls: ['./sudoku.component.scss'],
   template: `
     <div class="sudoku">
-      <h1>Ludan Sudoku</h1>
       <div class="difficulty">
         <div>Pick your difficulty:</div>
         <button
