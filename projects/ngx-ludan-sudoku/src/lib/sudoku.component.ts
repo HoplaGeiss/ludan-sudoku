@@ -1,42 +1,47 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { SudokuService } from './sudoku.service';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+
 import { SudokuDifficulty } from './sudoku.model';
+import { SudokuService } from './sudoku.service';
 
 @Component({
   selector: 'ludan-sudoku',
   styleUrls: ['./sudoku.component.scss'],
   template: `
     <div class="sudoku">
-      <div class="difficulty">
-        <div>Pick your difficulty:</div>
-        <button
-          class="ludan-button"
-          (click)="setDifficulty(sudokuDifficultyEnum.EASY)"
-          [class.highlight]="difficulty === sudokuDifficultyEnum.EASY"
-        >
-          Easy
-        </button>
-        <button
-          class="ludan-button"
-          (click)="setDifficulty(sudokuDifficultyEnum.MEDIUM)"
-          [class.highlight]="difficulty === sudokuDifficultyEnum.MEDIUM"
-        >
-          Medium
-        </button>
-        <button
-          class="ludan-button"
-          (click)="setDifficulty(sudokuDifficultyEnum.HARD)"
-          [class.highlight]="difficulty === sudokuDifficultyEnum.HARD"
-        >
-          Hard
-        </button>
+      <div class="difficulty" fxLayout="row wrap">
+        <div class="difficulty__text" fxFlex.xs="100">Pick your difficulty:</div>
+        <div class="difficulty__button-row" fxFlex.xs="100">
+          <button
+            class="ludan-button"
+            (click)="setDifficulty(sudokuDifficultyEnum.EASY)"
+            [class.highlight]="difficulty === sudokuDifficultyEnum.EASY"
+          >
+            Easy
+          </button>
+          <button
+            class="ludan-button"
+            (click)="setDifficulty(sudokuDifficultyEnum.MEDIUM)"
+            [class.highlight]="difficulty === sudokuDifficultyEnum.MEDIUM"
+          >
+            Medium
+          </button>
+          <button
+            class="ludan-button"
+            (click)="setDifficulty(sudokuDifficultyEnum.HARD)"
+            [class.highlight]="difficulty === sudokuDifficultyEnum.HARD"
+          >
+            Hard
+          </button>
+        </div>
       </div>
-      <ludan-sudoku-grid
-        [nestedSudokuPuzzle]="nestedSudokuPuzzle"
-        [nestedSudokuSolution]="nestedSudokuSolution"
-        [verifyEvent]="verifyEvent"
-        [displaySolution]="displaySolution"
-      ></ludan-sudoku-grid>
+      <div class="sudoku__grid">
+        <ludan-sudoku-grid
+          [nestedSudokuPuzzle]="nestedSudokuPuzzle"
+          [nestedSudokuSolution]="nestedSudokuSolution"
+          [verifyEvent]="verifyEvent"
+          [displaySolution]="displaySolution"
+        ></ludan-sudoku-grid>
+      </div>
       <div class="action-toolbar">
         <button class="ludan-button" (click)="initSudokuPuzzle()">Reset</button>
         <button class="ludan-button" (click)="verify()">Verify</button>

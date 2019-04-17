@@ -1,6 +1,8 @@
 @import '../shared/styles/colours.scss';
+@import '../shared/styles/layout.scss';
 
 $cell-size: 40px;
+$cell-reduction-sm: 10px;
 
 .sudoku-grid {
   width: calc(9 * #{$cell-size} + 6px);
@@ -8,9 +10,21 @@ $cell-size: 40px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid $blue7;
+  width: calc(9 * #{$cell-size} + 6px);
+  height: calc(9 * #{$cell-size} + 6px);
+
+  @media only screen and (max-width: $xs) {
+    width: calc(9 * (#{$cell-size} - #{$cell-reduction-sm}) + 6px);
+    height: calc(9 * (#{$cell-size} - #{$cell-reduction-sm}) + 6px);
+  }
 
   .small-grid {
     width: calc(3 * #{$cell-size});
+
+    @media only screen and (max-width: $xs) {
+      width: calc(3 * (#{$cell-size} - #{$cell-reduction-sm}));
+    }
+
     display: flex;
     flex-wrap: wrap;
     border: 1px solid $blue7;
@@ -18,6 +32,11 @@ $cell-size: 40px;
     .cell {
       height: $cell-size;
       width: $cell-size;
+
+      @media only screen and (max-width: $xs) {
+        height: calc(#{$cell-size} - #{$cell-reduction-sm});
+        width: calc(#{$cell-size} - #{$cell-reduction-sm});
+      }
 
       input {
         box-sizing: border-box;
@@ -29,6 +48,11 @@ $cell-size: 40px;
         text-align: center;
         font-size: 1.5em;
         color: $blue7;
+
+        @media only screen and (max-width: $xs) {
+          height: calc(#{$cell-size} - #{$cell-reduction-sm});
+          width: calc(#{$cell-size} - #{$cell-reduction-sm});
+        }
 
         &:disabled {
           background: white;
