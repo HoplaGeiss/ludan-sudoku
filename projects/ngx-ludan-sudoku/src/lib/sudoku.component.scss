@@ -7,6 +7,8 @@
   @include font-family();
 
   .difficulty {
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 20px;
     font-size: 1em;
     align-items: center;
@@ -15,6 +17,10 @@
     &__text {
       display: flex;
       justify-content: center;
+
+      @media only screen and (max-width: $xs) {
+        width: 100%;
+      }
     }
 
     &__button-row {
@@ -26,6 +32,7 @@
       }
       @media only screen and (max-width: $xs) {
         margin-top: 10px;
+        width: 100%;
       }
 
       button {

@@ -8,9 +8,9 @@ import { SudokuService } from './sudoku.service';
   styleUrls: ['./sudoku.component.scss'],
   template: `
     <div class="sudoku">
-      <div class="difficulty" fxLayout="row wrap">
-        <div class="difficulty__text" fxFlex.xs="100">Pick your difficulty:</div>
-        <div class="difficulty__button-row" fxFlex.xs="100">
+      <div class="difficulty">
+        <div class="difficulty__text">Pick your difficulty:</div>
+        <div class="difficulty__button-row">
           <button
             class="ludan-button"
             (click)="setDifficulty(sudokuDifficultyEnum.EASY)"
