@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "deploy": "ng build ngx-ludan-sudoku && cd dist/ngx-ludan-sudoku && npm publish"
+    "release": "ng build ngx-ludan-sudoku && cd dist/ngx-ludan-sudoku && npm publish"
   },
   "private": true,
   "dependencies": {

@@ -9,7 +9,7 @@ $cell-reduction-sm: 10px;
   height: calc(9 * #{$cell-size} + 6px);
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid $blue7;
+  border: 1px solid $primary-dark;
   width: calc(9 * #{$cell-size} + 6px);
   height: calc(9 * #{$cell-size} + 6px);
 
@@ -27,7 +27,7 @@ $cell-reduction-sm: 10px;
 
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid $blue7;
+    border: 1px solid $primary-dark;
 
     .cell {
       height: $cell-size;
